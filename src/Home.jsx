@@ -1,12 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link}from "react-router-dom";
+
+
 function Home(){
     const employees = useSelector((state) => state.employees);
-   
+    
     return(
         <div className="container">
             <h2>Employee Directory SPA App</h2>
-            <button className="btn btn-success my-3">Create +</button>
+            <Link to="/create" className="btn btn-success my-3">Create +</Link>
             <table className="table-fit table">
                 <thead>
                     <tr>
