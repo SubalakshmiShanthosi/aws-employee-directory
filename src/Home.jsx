@@ -1,11 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link}from "react-router-dom";
+import { removeEmployee } from "./EmployeeReducer";
 
 
 function Home(){
     const employees = useSelector((state) => state.employees);
     
+    const dispatch = useDispatch();
+
+    const handleDelete = (id) =>{
+        dispatch(removeEmployee({id: id}));
+    }
     return(
         <div className="container">
             <h2>Employee Directory SPA App</h2>
@@ -39,7 +45,7 @@ function Home(){
                             <td>{employee.dob}</td>
                             <td>
                                 <Link to={`/edit/${employee.id}`} className="btn btn-sm btn-primary">Edit</Link>
-                                <button className="btn btn-sm btn-danger ms-2">Delete</button>
+                                <button className="btn btn-sm btn-danger ms-2" onClick={() => handleDelete(employee.id)}>Delete</button>
                             </td>
                         </tr>
                     )

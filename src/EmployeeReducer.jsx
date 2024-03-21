@@ -20,6 +20,15 @@ const employeeSlice = createSlice({
                 updatingEmployee.phone = phone;
                 updatingEmployee.dob = dob;
             }
+        },
+
+        removeEmployee: (state,action) =>{
+            const {id} = action.payload;
+            const deletingEmployee = state.find(employee => employee.id == id);
+            if(deletingEmployee)
+            {
+                return state.filter(f => f.id !== id);
+            }
         }
     }
 })
@@ -27,3 +36,4 @@ const employeeSlice = createSlice({
 export const {addEmployee} = employeeSlice.actions;
 export default employeeSlice.reducer;
 export const {updateEmployee} = employeeSlice.actions;
+export const {removeEmployee} = employeeSlice.actions;
