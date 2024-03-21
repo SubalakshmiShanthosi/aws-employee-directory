@@ -38,7 +38,7 @@ function Home(){
                             <td>{employee.phone}</td>
                             <td>{employee.dob}</td>
                             <td>
-                                <button className="btn btn-sm btn-primary">Edit</button>
+                                <Link to={`/edit/${employee.id}`} className="btn btn-sm btn-primary">Edit</Link>
                                 <button className="btn btn-sm btn-danger ms-2">Delete</button>
                             </td>
                         </tr>
